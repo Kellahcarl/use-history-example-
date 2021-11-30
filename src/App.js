@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route, useHistory } from 'react-router-dom';
+import React,{useEffect} from 'react';
+import login from './pages/login';
 
-function App() {
+
+const App = () => {
+  const history = useHistory();
+
+  // const App = ({ history }) => {
+  // const redirect = () => {
+  //   history.push('/login');
+  // }
+
+  const redirect = () => {
+    history.push('/login');
+  }
+// login when page loads
+  // useEffect( () =>
+  // {
+  //   history.push('/login');
+  // }, [] )
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hi there!</h1>
+      <Route path="/login" component={login}/>
+      <login/>
+      <button onClick={redirect}>Log in</button>
     </div>
   );
-}
+};
 
 export default App;
